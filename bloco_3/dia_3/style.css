@@ -1,0 +1,61 @@
+.caixa {
+    color: white;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  .width-and-height {
+    height: 50px;
+    width: 50px;
+  }
+
+  .padding {
+    padding: 20px;
+  }
+
+  .margin {
+    margin: 30px;
+  }
+
+  .border {
+    border: 5px solid black;
+  }
+
+/* ------------------- */
+
+.super-mario {
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+
+.goomba {
+    position: absolute;
+    width: 150px;
+    top: 62%;
+    left: 50px;
+}
+
+
+.cena2 {
+    position: absolute;
+    width: 100%;
+}
+
+.bowser {
+    float: right;
+}
+
+.word {
+    position: absolute;
+    float: right;
+    right: 705px;
+    margin-top: 60px;
+    font-size: 25px;
+}
+
+.baloon {
+    float: right;
+}
