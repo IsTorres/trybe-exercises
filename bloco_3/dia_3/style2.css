@@ -29,22 +29,22 @@ div:hover {
     border: 3px solid #abc321;
 }
 
-.corPrimaria {
+div:nth-of-type(1){
     background-color: #476c9b;
     font-style: italic;
 }
-.corSecundaria {
+div:nth-of-type(2) {
     background-color: #468c98;
 }
-.corComplementar {
+div:nth-of-type(3) {
     background-color: #984447;
     font-style: italic;
     width: 100%;
 }
-.corEscura {
+div:nth-of-type(4) {
     background-color: #101419;
 }
-.corClara {
+div:nth-of-type(5) {
     background-color: #add9f4;
     font-style: italic
 }
