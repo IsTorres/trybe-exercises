@@ -67,7 +67,8 @@ hr{
 
 .article p{
     margin: 50px auto;
-    width: 45%;
+    width: 50%;
+    font-size: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: justify;
 }
@@ -77,25 +78,33 @@ hr{
 }
 
 .tabela{
-    border: 1px solid black;
-    background-color: #fff;
+    border-collapse: collapse;
+    background-color: #aaa;
     text-align: left;
     margin: 3%;
-    padding: 3%;
     display: inline-block;
 }
 
 .tabela thead {
+    border: 2px solid #000;
+    background-color: #000;
+    padding: 5px 8px;
+    color: #fff;
     display: block;
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tabela tbody{
+    color: #fff;
+    border: 2px solid #000;
 }
 
 .tabela td{
-    border: 1px solid #aaa;
-    padding: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;  
+    border: 1px solid #000;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .curioso{
@@ -108,8 +117,11 @@ hr{
 
 .aside{
     display: inline-block;
-    width: 20%;
     float: right;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
+    width: 20%;
     border-left: 2px solid;
     padding: 10px;
 }
