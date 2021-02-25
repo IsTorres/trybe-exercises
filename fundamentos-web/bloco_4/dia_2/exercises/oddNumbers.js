@@ -7,4 +7,8 @@ for (let index = 0; index < numbers.length; index += 1) {
   }
 }
 
-console.log(oddNum);
+if(oddNum === 0){
+  console.log('Nenhum numero impar foi encontrado.');
+} else {
+  console.log(oddNum);
+}
