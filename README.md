@@ -1,6 +1,6 @@
-# Repositorio de exercicicos
+# Repositorio de exercícicos
 
-### Os exercicios estão organizados desta forma:
+### Os exercícios estão organizados desta forma:
 exercicio/modulo.dia
 
 ### você pode velos a partir das branchs
