@@ -1,0 +1,140 @@
+body{
+    margin: 0;
+}
+
+hr{
+    border: 1px solid;
+    margin: 5% 10%;
+}
+
+.nav{
+    background-color: black;
+}
+
+.nav ul{
+    text-align: center;
+    margin: 0;
+}
+
+.nav li{
+    padding: 1% 10%;
+    display: inline-block;
+    font-size: 25px;
+    transition: 0.5s;
+}
+
+.nav li:hover{
+    background-color: rgb(199, 199, 199);
+    color: rgb(48, 48, 48);
+
+}
+
+.nav a{
+    color: #fff;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+/* -------------------------- */
+
+.header{
+    text-align: left;
+    margin: 5% 25% 5% 5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+/* -------------------------- */
+.article{
+    display: inline-block;
+    width: 75%;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+}
+
+.article h2{
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(40, 40, 40);
+    text-shadow: 2px 2px 2px #aaa;
+}
+
+.article img {
+    width: 40%;
+    border: 5px solid #fff;
+    box-shadow: 3px 3px 3px #aaa;
+}
+
+.article p{
+    margin: 50px auto;
+    width: 50%;
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: justify;
+}
+
+/* .info{
+
+} */
+
+.tabela{
+    border-collapse: collapse;
+    background-color: #aaa;
+    text-align: left;
+    margin: 3%;
+    display: inline-block;
+}
+
+.tabela thead {
+    border: 2px solid #000;
+    background-color: #000;
+    padding: 5px 8px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tabela tbody{
+    color: #fff;
+    border: 2px solid #000;
+}
+
+.tabela td{
+    border: 1px solid #000;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* .curioso{
+
+}
+*/
+.fontes ul{
+    display: inline-block;
+} 
+
+.fontes img{
+    display: inline-block;
+}
+
+.aside{
+    display: inline-block;
+    float: right;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
+    width: 20%;
+    border-left: 2px solid;
+    padding: 10px;
+}
+
+.footer{
+    background-color: rgb(19, 19, 19);
+    padding: 30px;
+    color: #aaa;
+    text-align: center;
+    font-family: monospace;
+    font-size: 15px;
+}
