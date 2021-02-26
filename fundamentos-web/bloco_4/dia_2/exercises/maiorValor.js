@@ -17,7 +17,7 @@ let orderNum = numbers.sort(function(a,b){return b - a});
 //  Fonte: developer.mozilla.org - array.prototype.sort()
 //  function '.sort' ordena de acordo com a pontuação unicode.
 //  para ter certeza da ordenação correta, deve-se fornecer
-//  um 'paramentro' de comparação entre 2 elementos do array, no caso, uma function.
+//  um 'parametro' de comparação entre 2 elementos do array, no caso, uma function.
 //  na qual compara o elemento 'a' com o 'b':
 //  Se a - b == numero negativo --> a é menor que b;
 //  Se a - b == numero positivo --> a é maior que b;
