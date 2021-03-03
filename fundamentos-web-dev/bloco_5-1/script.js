@@ -24,3 +24,17 @@ function trybeGreen() {
   square.style.background = 'rgb(76,164,109)';
 }
 trybeGreen();
+
+// exe3:
+function centerSquareColor() {
+  let centerSquare = document.getElementsByClassName('center-content')[0];
+  centerSquare.style.background = 'rgb(255,255,255)';
+}
+centerSquareColor();
+
+// exe4:
+function textH1() {
+  let text = document.getElementsByClassName('title')[0];
+  text.innerHTML = 'Exercício 5.1 - JavaScripit';
+}
+textH1();
