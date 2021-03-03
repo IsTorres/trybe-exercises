@@ -38,3 +38,21 @@ function textH1() {
   text.innerHTML = 'Exercício 5.1 - JavaScripit';
 }
 textH1();
+
+// exe5:
+function textP() {
+  let text = document.getElementsByTagName('p');
+  for (let i = 0; i < text.length; i += 1) {
+    text[i].style.textTransform = 'uppercase';
+  }
+}
+textP();
+
+// exe6:
+function printConsoleP() {
+  let content = document.getElementsByTagName('p');
+  for (let i = 0; i < content.length; i += 1) {
+    console.log(document.getElementsByTagName('p')[i].innerHTML);
+  }
+}
+printConsoleP();
