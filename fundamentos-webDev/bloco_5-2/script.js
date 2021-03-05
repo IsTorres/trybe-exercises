@@ -46,3 +46,7 @@ for(let i = 1; i <= 10; i += 1) {
 }
 
 // 9 - Adicione 3 tags h3 , todas sendo filhas do div criado no passo 2.
+for(let i = 0; i < 3; i += 1) {
+  let h3 = document.createElement('h3');
+  mainContent.appendChild(h3);
+}
