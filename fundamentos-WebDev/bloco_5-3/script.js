@@ -33,13 +33,25 @@ createDaysOfMonth();
 // Cria botão de feriado
 function holydays(param) {
   // Cria botão, insere string e add id 'btn-holyday'
-  const holydayBtn = document.createElement('button');
-  holydayBtn.innerText = param;
-  holydayBtn.id = 'btn-holyday';
+  const button = document.createElement('button');
+  button.innerText = param;
+  button.id = 'btn-holyday';
 
   // captura div especifica pela class e afilia o botão a ela
   const btnContainer = document.querySelector('.buttons-container');
-  btnContainer.appendChild(holydayBtn);
+  btnContainer.appendChild(button);
 }
 holydays('Feriados');
 
+// Captura o botão pela id
+let btnHolyday = document.querySelector('#btn-holyday');
+// Cria evento de mudança de bg-color com click + (if/else)
+btnHolyday.addEventListener('click', function(){
+  let holydayDays = document.querySelector('.holyday');
+  // Botão on/off
+  if (holydayDays.style.backgroundColor === 'green') {
+    holydayDays.style.backgroundColor = "rgb(238,238,238)";
+  } else {
+    holydayDays.style.backgroundColor = 'green';
+  }
+})
