@@ -1,0 +1,18 @@
+body{
+  margin: 5%;
+}
+
+.title, .preferences {
+  text-align: center;
+}
+
+.preferences {
+  display: flex;
+  margin: 1% 0;
+  padding: 3% 1%;
+  border: 1px solid #dcdcdc;
+}
+
+.options {
+  margin: auto;
+}
