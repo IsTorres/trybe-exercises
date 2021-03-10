@@ -21,37 +21,66 @@ function createDaysOfMonth () {
 
   // For p/ criar, inserir o txt(dia) e afiliar as li's à ul days
   for (let i = 0; i < dezDaysList.length; i += 1) {
-    const days = dezDaysList[i];
-    const monthDayListItem = document.createElement('li');
-    monthDayListItem.innerHTML = days;
+    const day = dezDaysList[i];
+    const dayOfMonth = document.createElement('li');
 
-    monthDays.appendChild(monthDayListItem);
+    if (day === 24 | day === 31){
+      dayOfMonth.className = 'day holiday';
+      dayOfMonth.innerHTML = day;
+      monthDays.appendChild(dayOfMonth);
+    } else if (day === 4 | day === 11 | day === 18) {
+      dayOfMonth.className = 'friday';
+      dayOfMonth.innerHTML = day;
+      monthDays.appendChild(dayOfMonth);
+    } else if (day === 25) {
+      dayOfMonth.className = 'day holiday friday'
+      dayOfMonth.innerHTML = day;
+      monthDays.appendChild(dayOfMonth);
+    } else {
+      dayOfMonth.className = 'day';
+      dayOfMonth.innerHTML = day;
+      monthDays.appendChild(dayOfMonth);
+    }
   }
 }
 createDaysOfMonth();
 
 // Cria botão de feriado
-function holydays(param) {
-  // Cria botão, insere string e add id 'btn-holyday'
+function createHolydayBtn(param) {
   const button = document.createElement('button');
-  button.innerText = param;
-  button.id = 'btn-holyday';
-
   // captura div especifica pela class e afilia o botão a ela
   const btnContainer = document.querySelector('.buttons-container');
+
+  button.innerText = param;
+  button.id = 'btn-holiday';
   btnContainer.appendChild(button);
 }
-holydays('Feriados');
+createHolydayBtn('Feriados');
 
-// Captura o botão pela id
-let btnHolyday = document.querySelector('#btn-holyday');
-// Cria evento de mudança de bg-color com click + (if/else)
-btnHolyday.addEventListener('click', function(){
-  let holydayDays = document.querySelector('.holyday');
-  // Botão on/off
-  if (holydayDays.style.backgroundColor === 'green') {
-    holydayDays.style.backgroundColor = "rgb(238,238,238)";
-  } else {
-    holydayDays.style.backgroundColor = 'green';
-  }
-})
+function showHolidays () {
+  // Captura o botão pela id
+  let btnHoliday = document.querySelector('#btn-holiday');
+  // pega elementos com class especifica
+  let holidayDays = document.querySelectorAll('.holiday');
+
+  let backgroundColor = 'rgb(238,238,238)';
+  let fontNewColor = 'white';
+  let fontColor = '#777';
+  let newColor = 'green';
+
+  // Cria evento de mudança de bg-color com click + (if/else)
+  btnHoliday.addEventListener('click', function(){
+    // For passa por totos elementos
+    for(let i = 0; i < holidayDays.length; i += 1) {
+      if (holidayDays[i].style.backgroundColor === newColor) {
+        holidayDays[i].style.backgroundColor = backgroundColor;
+        holidayDays[i].style.color = fontColor;
+      } else {
+        holidayDays[i].style.backgroundColor = newColor;
+        holidayDays[i].style.color = fontNewColor;
+
+      }
+    }
+  })
+}
+showHolidays();
