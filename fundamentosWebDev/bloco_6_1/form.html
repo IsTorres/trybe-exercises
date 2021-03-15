@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+<fieldset>
+  <form action="">
+    <p>Dados Pessoais:</p>
+    <label for="name">Nome: <input id="name" type="text" required max="40"></label>
+    <br>
+    <label for="email">Email: <input id="email" type="email" required max="50"></label>
+    <br>
+    <label for="cpf">CPF: <input id="cpf" type="text" required max="11"></label>
+    <br>
+    <label for="address">Endereço: <input id="address" type="text" required max="200"></label>
+    <br>
+    <label for="city">Cidade: <input id="city" type="text" required max="28"></label>
+    <br>
+    <label for="input-state">Estado: <select name="state" id="input-state" required></select></label>
+    <br>
+    <p>Tipo de moradia:</p>
+    <label for="home-type-1">
+      <input id="home-type-1" type="radio" name="tipo-moradia" value="Casa" checked required>
+      Casa
+    </label>
+    <label for="home-type-2">
+      <input id="home-type-2" type="radio" name="tipo-moradia" value="Apartamento" required>
+      Apartamento
+    </label>
+  </form>
+</fieldset>
+<fieldset>
+  <form action="">
+    <p>Dados do seu último emprego:</p>
+    <label for="resume">Resumo do currículo:</label>
+    <br>
+    <textarea id="resume" cols="30" rows="5" max="1000" required></textarea>
+    <br>
+    <label for="office">Cargo: <input id="office" type="text" max="40" required></label>
+    <br>
+    <label for="description">Descrioção do cargo: <input id="description" type="text" max="500" required></label>
+    <br>
+    <label for="start-date">Data de inicio: <input type="date" name="data-inicio" id="start-date"></label>
+    <br>
+    <div id="curriculum"></div>
+    <input id="send" type="button" value="Enviar">
+    <input id="clear" type="button" value="Limpar">
+  </form>
+</fieldset>
+<script src="script.js"></script>
+</body>
+</html>
