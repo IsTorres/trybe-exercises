@@ -8,50 +8,69 @@
   <title>Document</title>
 </head>
 <body>
-<fieldset>
-  <form action="">
+  <header>
+    <h1 class="header">Formulário para cadastro de currículo</h1>
     <p>Dados Pessoais:</p>
-    <label for="name">Nome: <input id="name" type="text" required max="40"></label>
-    <br>
-    <label for="email">Email: <input id="email" type="email" required max="50"></label>
-    <br>
-    <label for="cpf">CPF: <input id="cpf" type="text" required max="11"></label>
-    <br>
-    <label for="address">Endereço: <input id="address" type="text" required max="200"></label>
-    <br>
-    <label for="city">Cidade: <input id="city" type="text" required max="28"></label>
-    <br>
-    <label for="input-state">Estado: <select name="state" id="input-state" required></select></label>
-    <br>
-    <p>Tipo de moradia:</p>
-    <label for="home-type-1">
-      <input id="home-type-1" type="radio" name="tipo-moradia" value="Casa" checked required>
-      Casa
-    </label>
-    <label for="home-type-2">
-      <input id="home-type-2" type="radio" name="tipo-moradia" value="Apartamento" required>
-      Apartamento
-    </label>
+  </header>
+  <form method="GET">
+    <fieldset>
+      <div class="content">
+        <label for="name">Nome:</label>
+        <input id="name" name="nome" type="text" required maxlength="40">
+      </div>
+      <div class="content">
+        <label for="email">Email: </label>
+        <input id="email" name="email" type="email" required maxlength="50">
+      </div>
+      <div class="content">
+        <label for="CPF">CPF: </label>
+        <input id="CPF" inputmode="numeric" name="cpf" type="text" required maxlength="14">
+      </div>
+      <div class="content">
+        <label for="address">Endereço: </label>
+        <input id="address" name="address" type="text" required maxlength="200">
+      </div>
+      <div class="content">
+        <label for="city">Cidade: </label>
+        <input id="city" name="city" type="text" required maxlength="28">
+      </div>
+      <div class="content">
+        <label for="input-state">Estado: </label>
+        <select name="input-state" id="input-state" required></select>
+      </div>
+      <div class="content">
+        <p>Tipo de moradia:</p>
+        <label for="home-type-1">Casa</label>
+        <input id="home-type-1" type="radio" name="tipo-moradia" value="Casa" checked required>
+        <label for="home-type-2">Apartamento</label>
+        <input id="home-type-2" type="radio" name="tipo-moradia" value="Apartamento" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <p>Dados do seu último emprego:</p>
+      <div class="content">
+        <label for="resume">Resumo do currículo:</label>
+        <textarea id="resume" cols="30" rows="5" maxlength="1000" required></textarea>
+      </div>
+      <div class="content">
+        <label for="office">Cargo: </label>
+        <input id="office" name="office" type="text" maxlength="40" required>
+      </div>
+      <div class="content">
+        <label for="description">Descrioção do cargo: </label>
+        <input id="description" name="description" type="text" maxlength="500" required>
+      </div>
+      <div class="content">
+        <label for="start-date">Data de inicio: </label>
+        <input id="start-date" name="start-date" type="date">
+      </div>
+      <div class="content">
+        <div id="curriculum"></div>
+        <button id="send-btn"  class="send-btn" type="submit">Enviar</button>
+      </div>
+    </fieldset>
   </form>
-</fieldset>
-<fieldset>
-  <form action="">
-    <p>Dados do seu último emprego:</p>
-    <label for="resume">Resumo do currículo:</label>
-    <br>
-    <textarea id="resume" cols="30" rows="5" max="1000" required></textarea>
-    <br>
-    <label for="office">Cargo: <input id="office" type="text" max="40" required></label>
-    <br>
-    <label for="description">Descrioção do cargo: <input id="description" type="text" max="500" required></label>
-    <br>
-    <label for="start-date">Data de inicio: <input type="date" name="data-inicio" id="start-date"></label>
-    <br>
-    <div id="curriculum"></div>
-    <input id="send" type="button" value="Enviar">
-    <input id="clear" type="button" value="Limpar">
-  </form>
-</fieldset>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
