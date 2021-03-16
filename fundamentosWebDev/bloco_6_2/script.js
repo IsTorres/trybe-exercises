@@ -41,9 +41,9 @@ for (const key in states) {
 
 function validateData (data) {
   if (data.indexof('/') === 2 || data.indexof('/') === 5){
-    const day = data.substr(0, 2);
-    const month = data.substr(3, 2);
-    const year = data.substr(6, 4);
+    const day = data.substr(0, 2); // (index inicial, limite(no caso 2 caracteres))
+    const month = data.substr(3, 2); 
+    const year = data.substr(6, 4); // (index inicial, limite(no caso até 4 caracteres))
     if ((day > 31 || day < 1) && (month < 1 || month > 12) && (year < 1900 && year.lenth > 4)){
       return false;
     }

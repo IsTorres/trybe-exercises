@@ -1,12 +1,8 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
+* {
+  max-width: 800px;
+  margin: auto;
 }
-
+/* 
 .content {
   margin: 10px;
   margin-left: auto;

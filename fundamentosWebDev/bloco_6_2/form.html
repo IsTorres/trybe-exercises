@@ -1,75 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery-3.6.0.min.js"></script>
+  <!-- <script src="bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script> -->
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <h1 class="header">Formulário para cadastro de currículo</h1>
+  <header class="container" >
+    <h1 class="title">Formulário para cadastro de currículo</h1>
     <p>Dados Pessoais:</p>
   </header>
-  <form method="GET">
-    <fieldset>
-      <div class="content">
-        <label for="name">Nome:</label>
-        <input id="name" name="nome" type="text" required maxlength="40">
+  <form class="row g-3" action="" method="GET">
+    <div class="col-md-12">
+      <div class="mb-3 container">
+        <label class="form-label" for="name">Nome:</label>
+        <input class="form-control" id="name" name="nome" type="text" required maxlength="40">
       </div>
-      <div class="content">
-        <label for="email">Email: </label>
-        <input id="email" name="email" type="email" required maxlength="50">
+      <div class="mb-3 container">
+        <label class="form-label" for="email">Email: </label>
+        <input class="form-control" id="email" name="email" type="email" required maxlength="50">
       </div>
-      <div class="content">
-        <label for="CPF">CPF: </label>
-        <input id="CPF" inputmode="numeric" name="cpf" type="text" required maxlength="14">
+      <div class="mb-3 container">
+        <label class="form-label" for="CPF">CPF: </label>
+        <input class="form-control" id="CPF" inputmode="numeric" name="cpf" type="text" required maxlength="14">
       </div>
-      <div class="content">
-        <label for="address">Endereço: </label>
-        <input id="address" name="address" type="text" required maxlength="200">
+      <div class="mb-3 container">
+        <label class="form-label" for="address">Endereço: </label>
+        <input class="form-control" id="address" name="address" type="text" required maxlength="200">
       </div>
-      <div class="content">
-        <label for="city">Cidade: </label>
-        <input id="city" name="city" type="text" required maxlength="28">
+      <div class="mb-3 container">
+        <label class="form-label" for="city">Cidade: </label>
+        <input class="form-control" id="city" name="city" type="text" required maxlength="28">
       </div>
-      <div class="content">
-        <label for="input-state">Estado: </label>
-        <select name="input-state" id="input-state" required></select>
+      <div class="mb-3 container">
+        <label class="form-label" for="input-state">Estado: </label>
+        <select class="form-control" name="input-state" id="input-state" required></select>
       </div>
-      <div class="content">
-        <p>Tipo de moradia:</p>
-        <label for="home-type-1">Casa</label>
-        <input id="home-type-1" type="radio" name="tipo-moradia" value="Casa" checked required>
-        <label for="home-type-2">Apartamento</label>
-        <input id="home-type-2" type="radio" name="tipo-moradia" value="Apartamento" required>
+      <div class="mb-3 container">
+        <div class="form-check">
+          <p>Tipo de moradia:</p>
+          <label class="form-check-label" for="home-type-1">Casa</label>
+          <input class="form-check-input" id="home-type-1" type="radio" name="tipo-moradia" value="Casa" checked required>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="home-type-2">Apartamento</label>
+          <input class="form-check-input" id="home-type-2" type="radio" name="tipo-moradia" value="Apartamento" required>
+        </div>
       </div>
-    </fieldset>
+    </div>
 
-    <fieldset>
+    <div class="col-md-12 container">
       <p>Dados do seu último emprego:</p>
-      <div class="content">
-        <label for="resume">Resumo do currículo:</label>
-        <textarea id="resume" cols="30" rows="5" maxlength="1000" required></textarea>
+      <div class="mb-3 container">
+        <label class="form-label" for="resume">Resumo do currículo:</label>
+        <textarea class="form-control" id="resume" cols="30" rows="5" maxlength="1000" required></textarea>
       </div>
-      <div class="content">
-        <label for="office">Cargo: </label>
-        <input id="office" name="office" type="text" maxlength="40" required>
+      <div class="mb-3 container">
+        <label class="form-label" for="office">Cargo: </label>
+        <input class="form-control" id="office" name="office" type="text" maxlength="40" required>
       </div>
-      <div class="content">
-        <label for="description">Descrioção do cargo: </label>
-        <input id="description" name="description" type="text" maxlength="500" required>
+      <div class="mb-3 container">
+        <label class="form-label" for="description">Descrioção do cargo: </label>
+        <input class="form-control" id="description" name="description" type="text" maxlength="500" required>
       </div>
-      <div class="content">
-        <label for="start-date">Data de inicio: </label>
-        <input id="start-date" name="start-date" type="date">
+      <div class="mb-3 container">
+        <label class="form-label" for="start-date">Data de inicio: </label>
+        <input class="form-control" id="start-date" name="start-date" type="text">
       </div>
-      <div class="content">
+      <div class="mb-3 container">
         <div id="curriculum"></div>
-        <button id="send-btn"  class="send-btn" type="submit">Enviar</button>
+        <button id="send-btn"  class="btn btn-outline-info" type="submit">Enviar</button>
       </div>
-    </fieldset>
+    </div>
   </form>
   <script src="script.js"></script>
 </body>
