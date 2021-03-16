@@ -1,0 +1,71 @@
+// estados => options:
+let states = {
+  'AC': 'Acre',
+  'AL': 'Alagoas',
+  'AP': 'Amapá',
+  'AM': 'Amazonas',
+  'BA': 'Bahia',
+  'CE': 'Ceará',
+  'DF': 'Distrito Federal',
+  'ES': 'Espírito Santo',
+  'GO': 'Goiás',
+  'MA': 'Maranhão',
+  'MT': 'Mato Grosso',
+  'MS': 'Mato Grosso do Sul',
+  'MG': 'Minas Gerais',
+  'PA': 'Pará',
+  'PB': 'Paraíba',
+  'PR': 'Paraná',
+  'PE': 'Pernambuco',
+  'PI': 'Piauí',
+  'RJ': 'Rio de Janeiro',
+  'RN': 'Rio Grande do Norte',
+  'RS': 'Rio Grande do Sul',
+  'RO': 'Rondônia',
+  'RR': 'Roraima',
+  'SC': 'Santa Catarina',
+  'SP': 'São Paulo',
+  'SE': 'Sergipe',
+  'TO': 'Tocantins'
+}
+// cria o dropDown de estados:
+for (const key in states) {
+  const create = document.createElement('option');
+  const inputState = document.getElementById('input-state')
+  create.innerHTML = `${key} : ${states[key]}`;
+  inputState.append(create);
+}
+
+// validação dos inputs do form:
+
+// const formName = document.querySelector('#name');
+// function validation() {
+//   console.log(formName.value);
+// }
+
+// função extraida do stackoverflow: (Evandro Uzeda) "Mask em JavaScript puro"
+function inputCpf () {
+  // add '.' e '-' ao input do cpf
+  document.addEventListener('keydown', function(event) { 
+    if(event.keyCode != 46 && event.keyCode != 8){
+    let i = document.getElementById("CPF").value.length;
+    if (i === 3 || i === 7)
+      document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
+    else if (i === 11) 
+      document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
+    }
+  });
+}
+inputCpf();
+
+// função prevent default (segura os dados para serem tratados antes de envia-los)
+function stopDefault(evt) {
+  evt.preventDefault();
+  // validation();
+}
+document.getElementById('send-btn').addEventListener('click', stopDefault, false);
+
+// Consolida as info's do form:
+
+function consoleForm () {
+}
