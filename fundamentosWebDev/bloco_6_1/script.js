@@ -28,13 +28,37 @@ let states = {
   'SE': 'Sergipe',
   'TO': 'Tocantins'
 }
+
 // cria o dropDown de estados:
 for (const key in states) {
-  const create = document.createElement('option');
+  const createOption = document.createElement('option');
   const inputState = document.getElementById('input-state')
-  create.innerHTML = `${key} : ${states[key]}`;
-  inputState.append(create);
+  createOption.innerHTML = `${states[key]}`;
+  createOption.value = key;
+
+  inputState.append(createOption);
 }
+
+function validateData (data) {
+  if (data.indexof('/') === 2 || data.indexof('/') === 5){
+    const day = data.substr(0, 2);
+    const month = data.substr(3, 2);
+    const year = data.substr(6, 4);
+    if ((day > 31 || day < 1) && (month < 1 || month > 12) && (year < 1900 && year.lenth > 4)){
+      return false;
+    }
+  }
+  return true;
+}
+
+function checkData() {
+  const inputData = document.querySelector('#start-date').value
+  if (validateData(inputData) === false) {
+    return alert('Data inválida.');
+  }
+  return inputData;
+}
+
 
 // validação dos inputs do form:
 
@@ -68,4 +92,5 @@ document.getElementById('send-btn').addEventListener('click', stopDefault, false
 // Consolida as info's do form:
 
 function consoleForm () {
+
 }
