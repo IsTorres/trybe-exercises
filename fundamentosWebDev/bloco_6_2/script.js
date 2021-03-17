@@ -39,37 +39,9 @@ for (const key in states) {
   inputState.append(createOption);
 }
 
-function validateData (data) {
-  if (data.indexof('/') === 2 || data.indexof('/') === 5){
-    const day = data.substr(0, 2); // (index inicial, limite(no caso 2 caracteres))
-    const month = data.substr(3, 2); 
-    const year = data.substr(6, 4); // (index inicial, limite(no caso até 4 caracteres))
-    if ((day > 31 || day < 1) && (month < 1 || month > 12) && (year < 1900 && year.lenth > 4)){
-      return false;
-    }
-  }
-  return true;
-}
-
-function checkData() {
-  const inputData = document.querySelector('#start-date').value
-  if (validateData(inputData) === false) {
-    return alert('Data inválida.');
-  }
-  return inputData;
-}
-
-
-// validação dos inputs do form:
-
-// const formName = document.querySelector('#name');
-// function validation() {
-//   console.log(formName.value);
-// }
-
 // função extraida do stackoverflow: (Evandro Uzeda) "Mask em JavaScript puro"
+// add '.' e '-' ao input do cpf
 function inputCpf () {
-  // add '.' e '-' ao input do cpf
   document.addEventListener('keydown', function(event) { 
     if(event.keyCode != 46 && event.keyCode != 8){
     let i = document.getElementById("CPF").value.length;
@@ -82,15 +54,52 @@ function inputCpf () {
 }
 inputCpf();
 
-// função prevent default (segura os dados para serem tratados antes de envia-los)
-function stopDefault(evt) {
-  evt.preventDefault();
-  // validation();
+// Starter JavaScript for disabling form submissions if there are invalid fields
+// Function de validação dos campos do form:
+function validation () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  // captura o campo que contem a classe 'needs-validation'
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  // Loopa o form e caso algum campo nao esteja ok executa o 'event.preventDefault()'
+  // se estiver ok, add a class 'was-validated' 
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
 }
-document.getElementById('send-btn').addEventListener('click', stopDefault, false);
 
 // Consolida as info's do form:
+// função prevent default (segura os dados para serem tratados antes de envia-los)
+function createCurriuculum(evt) {
+  evt.preventDefault();
 
-function consoleForm () {
-
+  const inputs = document.querySelectorAll('.was-validated');
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].type === 'radio' && !inputs[i].checked) {
+      continue;
+    }
+    if (inputs[i].value === ''){
+      inputs[i].value = 'campo vazio.'
+    }
+    const elements = inputs[i].value;
+    const fild = document.querySelector('#curriculum');
+    const div = document.createElement('div');
+    div.classList.add('div-curriculum');
+    div.innerHTML = inputs[i].name;
+    div.innerHTML = elements;
+    fild.append(div);
+  }
 }
+const submit = document.getElementById('send-btn');
+submit.addEventListener('click', validation, createCurriuculum);
