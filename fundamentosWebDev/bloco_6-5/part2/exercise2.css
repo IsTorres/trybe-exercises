@@ -1,0 +1,112 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.container {
+  background-color: rgb(247, 247, 247);;
+  padding: 5%;
+}
+
+.container header p {
+  font-size: xx-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(50, 50, 50);
+  text-shadow: 1px 1px 3px rgb(165, 165, 165);
+}
+
+header nav {
+  border: 5px solid #fff;
+  transform: rotate(1deg);
+  box-shadow: 3px 3px 5px rgb(0 0 0 / 10%);
+}
+
+nav li {
+  list-style-type: circle;
+}
+
+h2 {
+  padding-left: 25px;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-one {
+  transform: rotate(-1deg);
+}
+
+.aside-two {
+  transform: rotate(1deg);
+}
+
+.aside-one, .aside-two{
+  margin: 20px 0;
+  border: 5px solid #fff;
+  box-shadow: 3px 3px 5px rgb(0 0 0 / 10%);
+}
+
+.main-content h1 {
+  font-size: x-large;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.main-content {
+  background-color: ghostwhite;
+  padding: 5%;
+  border: 5px solid #fff;
+  box-shadow: 3px 3px 5px rgb(0 0 0 / 10%);
+}
+
+footer {
+  background-color: rgb(20, 20, 27);
+  color: aliceblue;
+  padding: 3%;
+  margin: auto;
+}
+
+@media screen and (min-width: 567px) and (max-width: 1200px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header nav {
+    transform: none;
+  }
+
+  .aside {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .aside-one, .aside-two {
+    max-width: 40%;
+    margin: 3%;
+    padding: 1%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header nav {
+    transform: none;
+  }
+
+  .container nav ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  footer {
+    padding: 3% 5%;
+  }
+}
