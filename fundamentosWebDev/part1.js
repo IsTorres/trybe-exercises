@@ -34,6 +34,18 @@ const order = {
   },
 };
 
+const orderModifier = (order) => {
+  // Adicione abaixo as informações necessárias.
+  const newClient = order.name = 'Luiz Silva';
+  const newOrder = Object.keys(order.order.pizza);
+  const drink = order.order.drinks.coke.type;
+  const payment = order.payment.total = '50';
+  console.log(`Olá ${newClient}, o total do sei pedido de ${newOrder} e ${drink} é R$ ${payment},00`);
+}
+// Olá Luiz Silva, o total do seu pedido de muzzarella,calabresa e Coca-Cola Zero é R$ 50,00."
+
+orderModifier(order);
+
 const customerInfo = (order) => {
   // Adicione abaixo as informações necessárias.
   const deliveryPerson = order.order.delivery.deliveryPerson;
@@ -48,10 +60,3 @@ const customerInfo = (order) => {
 }
 
 customerInfo(order);
-
-const orderModifier = (order) => {
-  // Adicione abaixo as informações necessárias.
-
-}
-
-orderModifier(order);
