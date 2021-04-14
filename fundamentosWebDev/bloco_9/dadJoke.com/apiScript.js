@@ -9,4 +9,29 @@ const fetchJoke = () => {
       document.getElementById('jokeContainer').innerHTML = apiObject.joke;
     });
 };
+
+const fetchPromise = () => {
+  const promise = new Promise((resolve, reject) => {
+    const randomArray = 
+      Array.from({length: 10}, () => Math.round(Math.random() * 50) + 1)
+    
+    const randomNumber = randomArray.map((number) => number * number).reduce((acc, curr) => acc + curr);
+
+    (randomNumber <= 8000) ? resolve(randomNumber) : reject(randomNumber);
+  });
+
+  promise
+    .then((rn) => {
+      const divisionToArray = [];
+      const divisions = [2,3,5,10];
+      divisions.forEach((divisor) => divisionToArray.push(rn / divisor));
+      return console.log(divisionToArray);
+    }
+    // or
+    // .then(rn => [2,3,5,10].map(number => rn / number)); 
+    )
+    .catch((rn) => console.log(`É mais de oito mil! Essa promise deve estar quebrada! ${rn}`))
+}
+fetchPromise();
+
 window.onload = () => fetchJoke();
