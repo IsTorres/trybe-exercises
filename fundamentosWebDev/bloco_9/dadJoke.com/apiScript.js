@@ -25,12 +25,13 @@ const fetchPromise = () => {
       const divisionToArray = [];
       const divisions = [2,3,5,10];
       divisions.forEach((divisor) => divisionToArray.push(rn / divisor));
-      return console.log(divisionToArray);
+      return divisionToArray;
     }
     // or
-    // .then(rn => [2,3,5,10].map(number => rn / number)); 
+    // .then(rn => [2,3,5,10].map(number => rn / number))
     )
-    .catch((rn) => console.log(`É mais de oito mil! Essa promise deve estar quebrada! ${rn}`))
+    .then((array) => console.log(array.reduce((acc, curr) => acc + curr, 0)))
+    .catch(() => console.log(`É mais de oito mil! Essa promise deve estar quebrada!`))
 }
 fetchPromise();
 
