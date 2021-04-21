@@ -3,7 +3,7 @@ const {
   getUserName,
  } = require('./exercises');
 
-
+// 1:
 describe('Tests for uppercase function', () => {
   it('test with uppercase return TEST', () => { // (done)
     uppercase('test', (str) => expect(str).toBe('TEST'));
@@ -11,6 +11,7 @@ describe('Tests for uppercase function', () => {
   });
 });
 
+// 2:
 describe('Tests for getUseName function', () => {
   it('find the user with ID 4', async () => {
     await expect(getUserName(4)).resolves.toEqual('Mark');
@@ -25,5 +26,5 @@ describe('Tests for getUseName function', () => {
     // await expect(getUserName(id)).rejects.toMatch({ error: `User with ${id} not found.` });
     expect.assertions(1);
     await expect(getUserName(2)).rejects.toEqual({ error: 'User with 2 not found.'})
-  })
-})
+  });
+});

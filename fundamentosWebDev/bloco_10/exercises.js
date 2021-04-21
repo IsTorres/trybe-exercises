@@ -23,7 +23,17 @@ const users = {
     return findUserById(userID).then(user => user.name);
   };
 
-  // console.log(getUserName(1));
+// Exe.: 4
+const fetch = require('node-fetch');
+
+const getRepos = (url) => {
+  return fetch('https://api.github.com/orgs/tryber/repos')
+    .then(response => response.json())
+    .then((data) => {
+      return data.map((repo) => repo.name);
+    });
+};
+
 //
 
-module.exports = { uppercase, getUserName };
+module.exports = { uppercase, getUserName, getRepos };
