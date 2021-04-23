@@ -11,4 +11,14 @@ describe('Test randomNumber', () => {
     expect(functionTest.randomNumber()).toBe(10);
     expect(functionTest.randomNumber).toBeCalledTimes(2);
   });
+
+// Com a mesma função do exercício anterior, utilizando o mock, crie uma nova implementação, que deve receber dois parâmetros e retornar a divisão do primeiro pelo segundo. Essa implementação deve ocorrer uma única vez. Faça os testes necessários.
+
+  test('new implementation', () => {
+    functionTest.randomNumber = jest
+      .fn()
+      .mockImplementationOnce((a,b) => a / b);
+    
+    expect(functionTest.randomNumber(6,2)).toBe(3);
+  });
 })
