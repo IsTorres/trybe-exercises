@@ -21,4 +21,45 @@ describe('Test randomNumber', () => {
     
     expect(functionTest.randomNumber(6,2)).toBe(3);
   });
+
+// Ainda com a mesma função do primeiro exercício, utilizando o mock, crie uma nova implementação que receba três parâmetros e retorne sua multiplicação. Após fazer os devidos testes para ela, resete sua implementação e crie uma nova, que receba um parâmetro e retorne seu dobro. Faça os testes necessários. 
+
+  test('new impelemntation and test double function', () => {
+    const spy = jest.spyOn(functionTest, 'randomNumber');
+    spy.randomNumber = jest.fn()
+      .mockImplementation((a,b,c) => a * b * c);
+
+    expect(spy.randomNumber(2,2,2)).toBe(8);
+    expect(spy.randomNumber).toBeCalled();
+    expect(spy.randomNumber).toBeCalledTimes(1);
+    spy.mockRestore();
+
+    spy.randomNumber = jest.fn()
+      .mockImplementation((a) => a * 2);
+    
+    expect(spy.randomNumber(5)).toBe(10);
+    expect(spy.randomNumber).toBeCalled();
+    expect(spy.randomNumber).toBeCalledTimes(1);
+  });
+})
+
+describe('Test otter functions', () => {
+  test('upp to low case', () => {
+    functionTest.uppCase = jest.fn()
+      .mockImplementationOnce((str) => str.toLowerCase());
+
+    expect(functionTest.uppCase('OLA')).toBe('ola');
+  });
+  test('first to last letter', () => {
+    functionTest.firstLetter = jest.fn()
+      .mockImplementationOnce((str) => str[(str.length -1)]);
+
+    expect(functionTest.firstLetter('qwerty')).toBe('y');
+  });
+  test('concat 3 strings', () => {
+    functionTest.concatString = jest.fn()
+      .mockImplementationOnce((str1,str2,str3) => str1 + str2 + str3);
+
+    expect(functionTest.concatString('oi','tudo','bem')).toBe('oitudobem');
+  });
 })
