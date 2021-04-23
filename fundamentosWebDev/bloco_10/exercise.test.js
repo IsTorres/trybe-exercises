@@ -2,7 +2,7 @@
 const functionTest = jest.mock('./exercise');
 
 describe('Test randomNumber', () => {
-  test('default return 10', () => {
+  it('default return 10', () => {
     functionTest.randomNumber = jest.fn();
     functionTest.randomNumber.mockReturnValue(10);
     functionTest.randomNumber();
@@ -14,7 +14,7 @@ describe('Test randomNumber', () => {
 
 // Com a mesma função do exercício anterior, utilizando o mock, crie uma nova implementação, que deve receber dois parâmetros e retornar a divisão do primeiro pelo segundo. Essa implementação deve ocorrer uma única vez. Faça os testes necessários.
 
-  test('new implementation', () => {
+  it('new implementation', () => {
     functionTest.randomNumber = jest
       .fn()
       .mockImplementationOnce((a,b) => a / b);
@@ -24,7 +24,7 @@ describe('Test randomNumber', () => {
 
 // Ainda com a mesma função do primeiro exercício, utilizando o mock, crie uma nova implementação que receba três parâmetros e retorne sua multiplicação. Após fazer os devidos testes para ela, resete sua implementação e crie uma nova, que receba um parâmetro e retorne seu dobro. Faça os testes necessários. 
 
-  test('new impelemntation and test double function', () => {
+  it('new impelemntation and test double function', () => {
     const spy = jest.spyOn(functionTest, 'randomNumber');
     spy.randomNumber = jest.fn()
       .mockImplementation((a,b,c) => a * b * c);
@@ -44,19 +44,19 @@ describe('Test randomNumber', () => {
 })
 
 describe('Test otter functions', () => {
-  test('upp to low case', () => {
+  it('upp to low case', () => {
     functionTest.uppCase = jest.fn()
       .mockImplementationOnce((str) => str.toLowerCase());
 
     expect(functionTest.uppCase('OLA')).toBe('ola');
   });
-  test('first to last letter', () => {
+  it('first to last letter', () => {
     functionTest.firstLetter = jest.fn()
       .mockImplementationOnce((str) => str[(str.length -1)]);
 
     expect(functionTest.firstLetter('qwerty')).toBe('y');
   });
-  test('concat 3 strings', () => {
+  it('concat 3 strings', () => {
     functionTest.concatString = jest.fn()
       .mockImplementationOnce((str1,str2,str3) => str1 + str2 + str3);
 
