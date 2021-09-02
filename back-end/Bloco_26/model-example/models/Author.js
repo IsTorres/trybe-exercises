@@ -30,6 +30,24 @@ const getAll = async () => {
   return authors.map(serialize).map(getNewAuthor);
 };
 
+const findById =  async (id) => {
+  const [authorData] = await connection
+  .execute(`SELECT id,first_name, middle_name, last_name FROM authors WHERE id=?`, [id]);
+
+  if (authorData.length === 0) return null;
+
+  const { firstName, middleName, lastName } = authorData.map(serialize)[0];
+
+  // remonta o obj no novo formato (em camelCase, e com a key fullName)
+  return getNewAuthor({
+    id,
+    firstName,
+    middleName,
+    lastName,
+  })
+};
+
 module.exports = {
   getAll,
+  findById,
 };
