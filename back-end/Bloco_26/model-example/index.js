@@ -12,7 +12,11 @@ app.get('/authors', async (_req, res) => {
 app.get('/authors/:id', async (req, res) => {
   const { id } = req.params;
   const author = await Authors.findById(id);
-   return res.status(200).json(author);
+
+  if (!author) return res.status(404).json({
+    message: 'Author Not Found'
+  })
+  return res.status(200).json(author);
 });
 
 app.listen(port, () => console.log(`app Listen on port ${port}`));
