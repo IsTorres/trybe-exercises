@@ -5,7 +5,7 @@ const port = 3003;
 
 // arquivos que puxam os bancos
 // const Authors = require('./models/AuthorMSQL');
-const Authors = require('./models/AuthorMONGO');
+const Authors = require('./models/Author');
 app.use(bodyParser.json());
 
 app.get('/authors', async (_req, res) => {

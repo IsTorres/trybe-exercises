@@ -1,4 +1,4 @@
-const connection = require('./connectionMONGO');
+const connection = require('./connection');
 const { ObjectId } = require('mongodb'); // obj usado p/ buscar o id que o mongo gera (_id)
 
 // metodos com * não tem dif de um banco p outro (não foi necessario alterar)
