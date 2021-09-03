@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3003;
 
-const Authors = require('./models/Author');
+// arquivos que puxam os bancos
+// const Authors = require('./models/AuthorMSQL');
+const Authors = require('./models/AuthorMONGO');
 app.use(bodyParser.json());
 
 app.get('/authors', async (_req, res) => {
