@@ -21,6 +21,16 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    // cb(null, 'uploads/');
+    cb(null, 'envios/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${file.originalname}`);
+  },
+});
+
 /* Definindo nossa pasta pública */
 /* `app.use` com apenas um parâmetro quer dizer que
    queremos aplicar esse middleware a todas as rotas, com qualquer método */
@@ -29,21 +39,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
    verificar se o caminho da request é o nome de um arquivo que existe em `uploads`.
    Se for, o express envia o conteúdo desse arquivo e encerra a response.
    Caso contrário, ele chama `next` e permite que os demais endpoints funcionem */
-app.use(express.static(`${__dirname}/uploads`));
+// app.use(express.static(`${__dirname}/uploads`));
+app.use(express.static(`${__dirname}/envios`));
 
 /* Cria uma instância do`multer`configurada. O`multer`recebe um objeto que,
    nesse caso, contém o destino do arquivo enviado. */
-const upload = multer({ dest: 'uploads' });
-const envio = multer({ dest: 'envios' });
+// const upload = multer({ storage });
+const envio = multer({ storage });
 
-app.post('/files/upload', upload.single('file'), (req, res) => 
+// app.post('/files/upload', upload.single('file'), (req, res) => 
+//   res.status(200).json({ body: req.body, file: req.file }));
+
+app.post('/files/envios', envio.single('arquivo'), (req, res) => 
   res.status(200).json({ body: req.body, file: req.file }));
-
-app.post('/envios', envio.single('file'), (req, res) => {
-  const file = { body: req.body, file: req.file };
-  if (!file) return res.status(401).json({ message: 'não recebemos o arquivo' });
-  return res.json(200).json({ file: req.file.originalname });
-});
 
 app.get('/ping', controllers.ping);
 
