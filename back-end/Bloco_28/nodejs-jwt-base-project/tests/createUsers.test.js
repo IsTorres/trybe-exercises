@@ -2,9 +2,8 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../src/api/app');
 const sinon = require('sinon');
-const { mongoClient } = require('mongodb');
+const { MongoClient } = require('mongodb');
 const { MongoMemoryServer } = require('mongodb-memory-server');
-const MongoClient = require('mongodb/lib/mongo_client');
 
 chai.use(chaiHttp);
 
@@ -17,8 +16,7 @@ describe('POST /api/user', () => {
 
     before(async () => {
       const URLMock = await DBServer.getUri();
-      const connectionMock = await mongoClient
-        .connect(URLMock,  { usernameUrlParser: true, useUnifieldTopology: true });
+      const connectionMock = await MongoClient.connect(URLMock, { useNewUrlParser: true, useUnifiedTopology: true });
 
       sinon.stub(MongoClient, 'connect').resolves(connectionMock);
       response = await chai.request(server)
@@ -29,10 +27,10 @@ describe('POST /api/user', () => {
         });
     });
 
-    after(async, () => {
+    after(async () => {
       MongoClient.connect.restore();
       await DBServer.stop();
-    })
+    });
 
     it('retorna status cod 201', () => {
       expect(response).to.have.status(201);
