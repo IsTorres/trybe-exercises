@@ -1,0 +1,20 @@
+# variavel de ambiente: env_<ambiente>
+# instances: numero de nucleos do processador
+# max_memory_restart:  if memory > limite de memory === restart process
+# restart_delay: fala por si proprio (ms)
+# exp_backoff: restart estrategico que aumenta o delay caso ocorra uma sequencia de restart's (100ms, 150ms, 225ms... até 15000ms)
+# watch: tipo um 'nodemon' p/ servidor, legal p/ ambiente de dev onde são feitas muitas att's.
+
+apps:
+  - name: app
+    script: index.js
+    exec_mode: cluster
+    instances: 3
+    env_homolog:
+      ENVIRONMENT: HOMOLOG
+    env_prod: 
+      ENVIRONMENT: PRODUCTION
+    max_memory_restart: 50M
+    restart_delay: 100
+    exp_backoff_restart_delay: 100
+    watch: index.js
