@@ -15,6 +15,8 @@ app.use(express.static(__dirname + '/public'));
 require('./socket/ping')(io);
 // importa a config do socket
 
+require('./socket/chat')(io);
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
