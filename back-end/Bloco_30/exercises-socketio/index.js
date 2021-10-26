@@ -12,15 +12,17 @@ const io = require('socket.io')(http, {
 app.use(express.static(__dirname + '/public')); 
 // provem acesso aos arquivos que estão em /public
 
-require('./socket/ping')(io);
+require('./sockets/ping')(io);
 // importa a config do socket
 
-require('./socket/chat')(io);
+require('./sockets/chat')(io);
+// config do chat
+
+require('./sockets/rooms')(io);
+// config das salas
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-http.listen(3000, () => {
-  console.log('Servidor ouvindo na porta 3000');
-});
+http.listen(3000, () => { console.log('Servidor ouvindo na porta 3000') });
