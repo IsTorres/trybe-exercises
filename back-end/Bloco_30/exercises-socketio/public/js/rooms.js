@@ -4,9 +4,21 @@ const socket = window.io();
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true});
 
-console.log(username, room);
+// console.log(username, room);
 
 socket.emit('joinRoom', { username, room });
+
+const form = document.querySelector('form');
+const inputMessage = document.querySelector('#messageInput');
+
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const message = inputMessage.value;
+
+  socket.emit('roomClientMessage', { room, message })
+  inputMessage.value = '';
+  return false;
+});
 
 const createMessage = (message) => {
   const messagesUl = document.querySelector('#messages');
